@@ -12,6 +12,9 @@ hero:
   actions:
     - text: 快速上手
       link: /nav/menu/start
+    - text: 组件文档
+      link: /nav/components/Base/button
+      theme: alt
 
 features:
   - icon: 📖

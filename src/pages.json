@@ -1,12 +1,30 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path": "pages/richText/index",
+			"style": {
+				"navigationBarTitleText": "富文本编辑器"
+			}
+		},
+		{
+			"path": "pages/button/index",
+			"style": {
+				"navigationBarTitleText": "按钮"
+			}
 		}
 	],
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^lds-(.*)": "lds-uniui/components/lds-$1/lds-$1.vue"
+		}
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

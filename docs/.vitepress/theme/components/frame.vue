@@ -5,6 +5,8 @@
 <script setup lang="ts">
 import { useRoute, useData } from 'vitepress'
 import { computed, onMounted, ref, watch } from 'vue'
+
+// 打印当前页面
 const baseUrl =
   process.env.NODE_ENV === 'production' ? `${location.origin}/demo/?timestamp=${new Date().getTime()}#/` : 'http://localhost:5173/'
 
@@ -14,7 +16,9 @@ const href = computed(() => {
   const paths = path ? path.split('.')[0].split('/') : []
   let href = ''
   if (paths.length) {
-    href = baseUrl + `pages/${kebabToCamel(paths[paths.length - 1])}/Index`
+    console.log(paths)
+    href = baseUrl + `pages/${kebabToCamel(paths[paths.length - 1])}/index`
+    console.log(href)
   } else {
     href = baseUrl
   }
