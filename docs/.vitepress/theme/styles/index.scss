@@ -1,0 +1,20 @@
+@use './rainbow.scss';
+@use './vars.scss';
+@use './vitepress.scss';
+@use './medium-zoom.scss';
+@use './tailwind.scss';
+
+// 全局样式
+html.dark {
+  --vp-c-bg: #1a1a1a;
+  --vp-c-bg-soft: #242424;
+  --vp-c-bg-mute: #2f2f2f;
+}
+
+.vp-doc {
+  h2 {
+    margin: 36px 0 16px;
+    border-top: 1px solid var(--vp-c-divider);
+    padding-top: 24px;
+  }
+}

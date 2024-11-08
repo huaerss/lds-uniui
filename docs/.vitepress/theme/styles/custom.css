@@ -1,0 +1,29 @@
+/* 代码块中未高亮的行变暗 */
+.vp-code-group .line:not(.highlighted) {
+  opacity: 0.65;
+  transition: opacity 0.3s;
+}
+
+/* 当鼠标悬停在代码块上时，所有行恢复正常透明度 */
+.vp-code-group:hover .line {
+  opacity: 1;
+}
+
+/* 确保高亮行始终保持完全不透明 */
+.vp-code-group .highlighted {
+  opacity: 1;
+  background-color: rgba(125,125,125,0.2);
+}
+
+/* 自定义样式 */
+.demo-button {
+  margin: 16px 0;
+}
+
+.w-button {
+  margin: 8px 8px 8px 0;
+}
+
+.button-row {
+  margin-bottom: 8px;
+}
