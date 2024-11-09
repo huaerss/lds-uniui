@@ -64,7 +64,7 @@
 <lds-button size="small" >中型按钮</lds-button>
 <lds-button >正常按钮</lds-button>
 <lds-button size="large" >大型按钮</lds-button>
-```p
+```
 
 ## API
 
