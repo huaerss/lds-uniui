@@ -35,13 +35,13 @@ npm install lds-uniui
 使用`easycom` 方式导入
 :::
 
-> pages.config.ts 中配置
+> pages.json 中配置
 
-```ts{3-5}
-  easycom: {
-    autoscan: true,
-    custom: {
-      '^lds-(.*)': 'lds-uniui/components/lds-$1/lds-$1.vue',
+```json{3-5}
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^lds-(.*)": "lds-uniui/components/lds-$1/lds-$1.vue",
     },
   },
   // ....

@@ -1,22 +1,19 @@
 {
     "name": "lds-uniui",
     "version": "1.0.0",
-    "description": "A Vue 3 UI Component Library",
+    "description": "lds公司uniapp组件库",
     "main": "index.ts",
     "files": [
         "src",
         "components"
     ],
-    "scripts": {
-        "publish": "npm publish --access public"
-    },
     "keywords": [
         "vue3",
         "components",
         "ui",
         "typescript"
     ],
-    "author": "Your Name",
+    "author": "GYH",
     "license": "MIT",
     "peerDependencies": {
         "@dcloudio/types": "^3.0.0",
@@ -24,5 +21,8 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "dependencies": {
+        "@dcloudio/types": "^3.0.0"
     }
 }

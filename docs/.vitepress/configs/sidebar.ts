@@ -26,6 +26,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       text: '交互组件',
       items: [
         { text: '富文本编辑器', link: '/rich-text' },
+        { text: '树形控件', link: '/tree' },
       ]
     }
 

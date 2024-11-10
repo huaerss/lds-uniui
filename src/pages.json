@@ -17,6 +17,12 @@
 			"style": {
 				"navigationBarTitleText": "按钮"
 			}
+		},
+		{
+			"path": "pages/tree/index",
+			"style": {
+				"navigationBarTitleText": "树形控件"
+			}
 		}
 	],
 	"easycom": {

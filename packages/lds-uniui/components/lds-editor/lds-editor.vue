@@ -198,6 +198,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  serverUrl: {
+    type: String,
+    default: '',
+  },
 })
 
 const insertDate = () => {
@@ -275,7 +279,6 @@ const insertImage = () => {
   uni.chooseImage({
     count: 1,
     success: (res: any) => {
-      console.log('图片插入时', res.tempFilePaths[0])
       editorCtx.value?.insertImage({
         src: res.tempFilePaths[0],
         width: '100%',
