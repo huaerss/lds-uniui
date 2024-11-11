@@ -23,6 +23,12 @@
 			"style": {
 				"navigationBarTitleText": "树形控件"
 			}
+		},
+		{
+			"path": "pages/card/index",
+			"style": {
+				"navigationBarTitleText": "卡片"
+			}
 		}
 	],
 	"easycom": {

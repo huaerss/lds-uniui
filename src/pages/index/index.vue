@@ -28,6 +28,8 @@ const title = ref('组件示例')
 const componentList = [
   { name: '按钮 Button', path: '/pages/button/index' },
   { name: '富文本 RichText Editor', path: '/pages/richText/index' },
+  { name: '树节点 Tree', path: '/pages/tree/index' },
+  { name: '卡片 Card', path: '/pages/card/index' },
   // 可以继续添加其他组件...
 ]
 

@@ -19,6 +19,10 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
           text: '按钮',
           link: '/button'
         },
+        {
+          text: '卡片',
+          link: '/card'
+        },
       ]
     },
     {

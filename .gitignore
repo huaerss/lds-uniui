@@ -20,3 +20,4 @@ dist
 *.sln
 *.sw?
 /docs/.vitepress/cache
+dist
