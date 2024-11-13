@@ -6,16 +6,8 @@
         <div style="padding: 20rpx">基础卡片</div>
       </lds-card>
     </view>
-
     <view class="section">
-      <view class="section-title">自定义背景色</view>
-      <lds-card bg-color="#FF5733">
-        <div style="padding: 20rpx">自定义背景色的卡片</div>
-      </lds-card>
-    </view>
-
-    <view class="section">
-      <view class="section-title">可展开卡片</view>
+      <view class="section-title">可展开卡片以及背景颜色</view>
       <lds-card bg-color="#4CAF50">
         <div style="padding: 20rpx">点击下方箭头展开更多内容</div>
         <template #extend>
@@ -86,7 +78,9 @@ const showdata = () => {
 .container {
   padding: 20rpx;
   margin-bottom: 40px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 :deep(.lds-card) {
@@ -122,4 +116,10 @@ const showdata = () => {
   margin-left: 5px;
   font-size: 16px;
 }
+
+/* div[style*="display: flex"] {
+  padding: 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+} */
 </style>

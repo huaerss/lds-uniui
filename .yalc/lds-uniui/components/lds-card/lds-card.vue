@@ -71,10 +71,12 @@ const toggleExpand = async () => {
 .card {
   border-radius: 20rpx;
   color: white;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card div {
-  margin: 10px;
+  box-sizing: border-box;
 }
 
 .divider {
@@ -91,7 +93,9 @@ const toggleExpand = async () => {
 .content-wrapper {
   opacity: 1;
   height: auto;
-  padding: 10px 0;  /* 添加一些内边距 */
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .toggle-button {

@@ -5,7 +5,6 @@ import MarkdownPreview from 'vite-plugin-markdown-preview'
 import { head, nav } from './configs'
 import { sidebar } from './configs/sidebar'
 
-const APP_BASE_PATH = basename(process.env.GITHUB_REPOSITORY || '')
 
 export default defineConfig({
   vue: {
@@ -15,14 +14,13 @@ export default defineConfig({
       }
     }
   },
-  outDir: '../dist',
-  base: APP_BASE_PATH ? `/${APP_BASE_PATH}/` : '/',
+  outDir: '../docDist',
+  base: '/ldsuniui/',
 
   lang: 'zh-CN',
   title: 'lds-uniui',
-  description: 'ldsuniapp',
+  description: 'lds-uniui',
   head,
-
   lastUpdated: true,
   cleanUrls: true,
 

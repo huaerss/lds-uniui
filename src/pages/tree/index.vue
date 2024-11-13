@@ -30,25 +30,18 @@
       </lds-tree>
     </view>
     
-    <view class="section">
-      <view class="section-title">自定义缩进</view>
-      <lds-tree 
-        :tree-data="basicData"
-        :indent-size="50"
-      />
-    </view>
-    
 
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 
 // 基础数据
 const basicData = ref([
   {
     label: '一级节点1',
+    expanded: false,
     children: [
       { label: '二级节点1-1',
         id: '1-1'
@@ -91,30 +84,6 @@ const checkboxData = ref([
   }
 ])
 
-// 带图标数据
-const iconData = ref([
-  {
-    label: '文档',
-    icon: 'https://via.placeholder.com/40x40.png/3c9cff/fff',
-    expanded: true,
-    children: [
-      {
-        label: 'images',
-        imageIcon: 'https://via.placeholder.com/40x40.png/3c9cff/fff',
-        children: [
-          { 
-            label: 'logo.png',
-            imageIcon: 'https://via.placeholder.com/40x40.png/3c9cff/fff'
-          }
-        ]
-      },
-      {
-        label: 'index.html',
-        imageIcon: 'https://via.placeholder.com/40x40.png/3c9cff/fff'
-      }
-    ]
-  }
-])
 
 // 添加自定义三级节点数据
 const customData = ref([
@@ -176,31 +145,38 @@ const customData = ref([
   }
 ])
 
+interface NodeType {
+  type: 'root' | 'folder' | 'doc' | 'file' | 'image' | 'font'
+  [key: string]: any
+}
+
 // 根据节点类型获取对应的图标
-const getNodeIcon = (node: any) => {
-  const iconMap = {
-    root: 'https://via.placeholder.com/40x40/3c9cff/fff?text=R',
-    folder: 'https://via.placeholder.com/40x40/3c9cff/fff?text=F',
-    doc: 'https://via.placeholder.com/40x40/3c9cff/fff?text=D',
-    file: 'https://via.placeholder.com/40x40/3c9cff/fff?text=FL',
-    image: 'https://via.placeholder.com/40x40/3c9cff/fff?text=I',
-    font: 'https://via.placeholder.com/40x40/3c9cff/fff?text=FT'
+const getNodeIcon = (node: NodeType) => {
+  console.log(node)
+  const iconMap: Record<NodeType['type'], string> = {
+    root: 'https://api.dicebear.com/7.x/icons/svg?seed=root&backgroundColor=4080ff',
+    folder: 'https://api.dicebear.com/7.x/icons/svg?seed=folder&backgroundColor=4080ff',
+    doc: 'https://api.dicebear.com/7.x/icons/svg?seed=doc&backgroundColor=4080ff',
+    file: 'https://api.dicebear.com/7.x/icons/svg?seed=file&backgroundColor=4080ff',
+    image: 'https://api.dicebear.com/7.x/icons/svg?seed=image&backgroundColor=4080ff',
+    font: 'https://api.dicebear.com/7.x/icons/svg?seed=font&backgroundColor=4080ff'
   }
   return iconMap[node.type]
 }
 
-const handleNodeClick = (node) => {
-  alert(`点击节点: ${JSON.stringify(node)}`)
+const handleNodeClick = (node: any) => {
+  console.log('点击节点:', node)
 }
 
 const handleNodeCheck = (node) => {
-  alert(`节点选中状态变化: ${JSON.stringify(node)}`)
+  console.log(`节点选中状态变化: ${JSON.stringify(node)}`)
 }
 </script>
 
 <style scoped>
 .container {
   padding: 20rpx;
+  background-color: #ffffff;
 }
 
 .section {
@@ -224,5 +200,6 @@ const handleNodeCheck = (node) => {
   height: 40rpx;
   margin-right: 10rpx;
   border-radius: 4rpx;
+  background-color: #ffffff;
 }
 </style> 

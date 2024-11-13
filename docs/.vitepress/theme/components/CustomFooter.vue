@@ -26,9 +26,9 @@ const copyright = computed(()=>{
   }
 })
 
-onMounted(() => {
-  isNetlify.value = typeof window !== 'undefined' ? window.location.href.includes('netlify') : false
-})
+// onMounted(() => {
+//   isNetlify.value = typeof window !== 'undefined' ? window.location.href.includes('netlify') : false
+// })
 </script>
 
 <template>

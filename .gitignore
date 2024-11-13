@@ -21,3 +21,6 @@ dist
 *.sw?
 /docs/.vitepress/cache
 dist
+/.yalc
+yalc.lock
+/docDist

@@ -1,7 +1,7 @@
 {
     "name": "lds-uniui",
-    "version": "1.0.1",
-    "description": "lds公司uniapp组件库",
+    "version": "1.0.2",
+    "description": "lds-uniapp组件库",
     "main": "index.ts",
     "files": [
         "src",

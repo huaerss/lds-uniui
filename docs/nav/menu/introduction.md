@@ -37,9 +37,13 @@ lds-uniui 是一个基于 <a href="https://uniapp.dcloud.net.cn/component/uniui/
 
 <div class="advantages">
 - <span class="text-primary">组件增强</span>: 对原有组件进行功能增强和 bug 修复
+
 - <span class="text-success">新增组件</span>: 补充了更多实用的业务组件
+
 - <span class="text-info">TypeScript</span>: 提供完整的类型支持，提升开发体验
+
 - <span class="text-warning">更好的性能</span>: 优化了组件的性能表现
+
 - <span class="text-danger">持续维护</span>: 提供长期的维护和支持
 </div>
 
@@ -67,13 +71,14 @@ lds-uniui 是一个基于 <a href="https://uniapp.dcloud.net.cn/component/uniui/
 
 1. 在 GitHub 上提交 <span class="badge danger">Issue</span>
 2. 提交 <span class="badge success">Pull Request</span>
-3. 加入我们的 <span class="badge info">讨论组</span>
 </div>
 
 ## 📄 开源协议
 
 <div class="content-box highlight-purple">
+
 lds-uniui 遵循 [MIT 协议](https://opensource.org/licenses/MIT)
+
 </div>
 
 <style>

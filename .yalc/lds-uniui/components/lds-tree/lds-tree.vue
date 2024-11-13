@@ -1,132 +1,146 @@
 <template>
   <view class="lds-tree">
-    <view v-for="(item, index) in treeData" :key="index" class="tree-item">
-      <view class="tree-node" @click="toggleNode(item)">
-        <!-- 展开/折叠图标 -->
-        <text v-if="item.children && item.children.length" class="toggle-icon">
-          {{ item.expanded ? '▼' : '▶' }}
-        </text>
-        <!-- 空白占位 -->
-        <text v-else class="toggle-placeholder"></text>
-        
-        <!-- 复选框 -->
-        <checkbox 
-          v-if="showCheckbox" 
-          class="checkbox"
-          :checked="item.checked"
-          @click.stop="handleCheck(item)"
-        />
-        
-        <!-- 图标插槽 -->
-        <slot name="icon" :node="item">
-          <text v-if="item.icon" class="node-icon" :class="item.icon"></text>
-          <image 
-            v-else-if="item.imageIcon" 
-            class="node-image" 
-            :src="item.imageIcon" 
-            mode="aspectFit"
+    <block v-for="(item, index) in treeData" :key="index">
+      <view class="tree-item">
+        <view class="tree-node" @tap="toggleNode(item)">
+          <!-- 展开/折叠图标 -->
+          <text v-if="item.children && item.children.length" class="toggle-icon">
+            {{ item.expanded ? '▼' : '▶' }}
+          </text>
+          <!-- 空白占位 -->
+          <text v-else class="toggle-placeholder"></text>
+          
+          <!-- 复选框 -->
+          <checkbox 
+            v-if="showCheckbox" 
+            class="checkbox"
+            :checked="item.checked"
+            @tap.stop="handleCheck(item)"
           />
-        </slot>
+          
+          <!-- 修改图标插槽部分 -->
+          <view class="icon-wrapper">
+            <slot name="icon" v-bind:node="item">
+              <text v-if="item.icon" class="node-icon" :class="item.icon"></text>
+              <image 
+                v-else-if="item.imageIcon" 
+                class="node-image" 
+                :src="item.imageIcon" 
+                mode="aspectFit"
+              />
+            </slot>
+          </view>
+          
+          <!-- 节点内容 -->
+          <text class="node-text" @tap.stop="selectNode(item)">
+            {{ item.label }}
+          </text>
+        </view>
         
-        <!-- 节点内容 -->
-        <text class="node-text" @click.stop="selectNode(item)">
-          {{ item.label }}
-        </text>
-      </view>
-      
-      <!-- 递归渲染子节点 -->
-      <view 
-        v-if="item.children && item.children.length && item.expanded" 
-        class="child-nodes"
-      >
-        <lds-tree
-          :tree-data="item.children"
-          :show-checkbox="showCheckbox"
-          @node-click="handleNodeClick"
-          @node-check="handleChildCheck"
-          :indent-size="indentSize"
-          :style="{ paddingLeft: indentSize + 'rpx' }"
+        <!-- 修改递归组件部分 -->
+        <view 
+          v-if="item.children && item.children.length && item.expanded" 
+          class="child-nodes"
         >
-          <template #icon="{ node }">
-            <slot name="icon" :node="node"></slot>
-          </template>
-        </lds-tree>
+          <lds-tree
+            :tree-data="item.children"
+            :show-checkbox="showCheckbox"
+            @node-click="handleNodeClick"
+            @node-check="handleChildCheck"
+          >
+            <template #icon="slotProps: { node: TreeNode }">
+              <slot name="icon" :node="slotProps.node"></slot>
+            </template>
+          </lds-tree>
+        </view>
       </view>
-    </view>
+    </block>
   </view>
 </template>
 
 <script setup lang="ts">
+import { defineProps, defineEmits } from 'vue'
+
 interface TreeNode {
-  label: string;
-  children?: TreeNode[];
-  expanded?: boolean;
-  selected?: boolean;
-  checked?: boolean;
-  icon?: string;
-  imageIcon?: string;
-  type?: string;
-  [key: string]: any;
+  label: string
+  children?: TreeNode[]
+  expanded?: boolean
+  selected?: boolean
+  checked?: boolean
+  icon?: string
+  imageIcon?: string
+  type?: string
+  [key: string]: any
 }
 
-const props = defineProps({
-  treeData: {
-    type: Array as () => TreeNode[],
-    default: () => []
-  },
-  indentSize: {
-    type: Number,
-    default: 30
-  },
-  showCheckbox: {
-    type: Boolean,
-    default: false
-  }
-});
+interface SlotProps {
+  node: TreeNode
+}
 
-const emit = defineEmits(['node-click', 'node-check']);
+const props = withDefaults(defineProps<{
+  treeData: TreeNode[]
+  showCheckbox?: boolean
+}>(), {
+  showCheckbox: false
+})
+
+const emit = defineEmits<{
+  'node-click': [node: TreeNode]
+  'node-check': [node: TreeNode]
+}>()
 
 // 切换节点展开/折叠状态
 const toggleNode = (node: TreeNode) => {
-  if (node.children && node.children.length) {
-    node.expanded = !node.expanded;
+  try {
+    if (node.children && node.children.length) {
+      node.expanded = !node.expanded
+    }
+  } catch (error) {
+    console.log(error)
   }
-};
+}
 
 // 选择节点
 const selectNode = (node: TreeNode) => {
-  emit('node-click', node);
-};
+  emit('node-click', node)
+}
 
 // 处理复选框选中
 const handleCheck = (node: TreeNode) => {
-  node.checked = !node.checked;
-  // 更新子节点状态
+  node.checked = !node.checked
   if (node.children) {
-    updateChildrenCheck(node.children, node.checked);
+    updateChildrenCheck(node.children, node.checked)
   }
-  emit('node-check', node);
-};
+
+  emit('node-check', node)
+}
 
 // 更新子节点选中状态
 const updateChildrenCheck = (children: TreeNode[], checked: boolean) => {
-  children.forEach(child => {
-    child.checked = checked;
+  try{
+    children.forEach(child => {
+    child.checked = checked
     if (child.children) {
-      updateChildrenCheck(child.children, checked);
+      updateChildrenCheck(child.children, checked)
     }
-  });
-};
+  })
+  }catch (error){
+    console.log(error)
+  }
+
+}
 
 // 处理子节点点击
 const handleNodeClick = (node: TreeNode) => {
-  emit('node-click', node);
-};
+  emit('node-click', node)
+}
 
 // 处理子节点复选框变化
 const handleChildCheck = (node: TreeNode) => {
-  emit('node-check', node);
-};
+  emit('node-check', node)
+}
+
+
 </script>
 
 <style scoped>
@@ -162,7 +176,6 @@ const handleChildCheck = (node: TreeNode) => {
 }
 
 .checkbox {
-  margin-right: 10rpx;
   transform: scale(0.8);
 }
 
@@ -190,6 +203,14 @@ const handleChildCheck = (node: TreeNode) => {
 }
 
 .child-nodes {
-  width: 100%;
+  margin-left: 30rpx;
+}
+
+/* 添加图标包装器样式 */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10rpx;
 }
 </style>

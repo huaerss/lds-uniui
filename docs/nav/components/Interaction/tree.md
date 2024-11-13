@@ -182,12 +182,12 @@ const customData = ref<TreeNode[]>([
 
 const getNodeIcon = (node: TreeNode): string => {
   const iconMap: Record<TreeNode['type'], string> = {
-    root: 'https://via.placeholder.com/40x40/3c9cff/fff?text=R',
-    folder: 'https://via.placeholder.com/40x40/3c9cff/fff?text=F',
-    doc: 'https://via.placeholder.com/40x40/3c9cff/fff?text=D',
-    file: 'https://via.placeholder.com/40x40/3c9cff/fff?text=FL',
-    image: 'https://via.placeholder.com/40x40/3c9cff/fff?text=I',
-    font: 'https://via.placeholder.com/40x40/3c9cff/fff?text=FT'
+    root: 'https://api.dicebear.com/7.x/icons/svg?seed=root&backgroundColor=4080ff',
+    folder: 'https://api.dicebear.com/7.x/icons/svg?seed=folder&backgroundColor=4080ff',
+    doc: 'https://api.dicebear.com/7.x/icons/svg?seed=doc&backgroundColor=4080ff',
+    file: 'https://api.dicebear.com/7.x/icons/svg?seed=file&backgroundColor=4080ff',
+    image: 'https://api.dicebear.com/7.x/icons/svg?seed=image&backgroundColor=4080ff',
+    font: 'https://api.dicebear.com/7.x/icons/svg?seed=font&backgroundColor=4080ff'
   }
   return iconMap[node.type]
 }
@@ -207,16 +207,6 @@ const handleNodeClick = (node: TreeNode) => {
 </style>
 ```
 
-## 自定义缩进
-
-通过 `indent-size` 属性自定义层级缩进大小。
-
-```html
-<lds-tree 
-  :tree-data="treeData"
-  :indent-size="50"
-/>
-```
 
 ## API
 
@@ -226,7 +216,6 @@ const handleNodeClick = (node: TreeNode) => {
 |------|------|------|--------|
 | tree-data | 树形结构数据 | TreeNode[] | [] |
 | show-checkbox | 是否显示复选框 | boolean | false |
-| indent-size | 缩进大小(rpx) | number | 30 |
 
 ### TreeNode 数据结构
 

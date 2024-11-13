@@ -11,6 +11,8 @@ pnpm install @lds/uniui
 - [x] Button
 - [x] Tree
 - [x] RichText
+- [x] Card
+- [ ] 待定
 
 
 

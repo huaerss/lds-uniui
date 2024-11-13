@@ -8,7 +8,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 
 // 打印当前页面
 const baseUrl =
-  process.env.NODE_ENV === 'production' ? `${location.origin}/demo/?timestamp=${new Date().getTime()}#/` : 'http://localhost:5173/'
+  process.env.NODE_ENV === 'production' ? `${location.origin}/uidemo/#/` : 'http://localhost:5173/#/'
 
 const route = useRoute()
 const href = computed(() => {
@@ -16,10 +16,10 @@ const href = computed(() => {
   const paths = path ? path.split('.')[0].split('/') : []
   let href = ''
   if (paths.length) {
-    console.log(paths)
     href = baseUrl + `pages/${kebabToCamel(paths[paths.length - 1])}/index`
     console.log(href)
   } else {
+    console.log('else')
     href = baseUrl
   }
   return href
