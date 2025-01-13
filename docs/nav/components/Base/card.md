@@ -43,6 +43,26 @@
       <div style="padding: 20rpx">
         可以放置更多详细信息
       </div>
+    </template>  
+  </lds-card>
+</template>
+```
+
+## 默认展开卡片
+
+通过设置 `default-expand` 属性为 `true`，可以使卡片在初始化时就处于展开状态。
+
+```html
+<template>
+  <lds-card bg-color="#FF9800" :default-expand="true">
+    <div style="padding: 20rpx">这是一个默认展开的卡片</div>
+    <template #extend>
+      <div style="padding: 20rpx">
+        默认就能看到这些内容
+      </div>
+      <div style="padding: 20rpx">
+        当然你也可以点击箭头收起
+      </div>
     </template>
   </lds-card>
 </template>
@@ -131,6 +151,7 @@ const showdata = () => {
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
 | bg-color | 卡片背景色 | string | #02a7f0 |
+| default-expand | 是否默认展开 | boolean | false |
 
 ### Slots
 

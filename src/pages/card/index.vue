@@ -22,6 +22,21 @@
     </view>
 
     <view class="section">
+      <view class="section-title">默认展开的卡片</view>
+      <lds-card bg-color="#FF9800" :default-expand="true">
+        <div style="padding: 20rpx">这是一个默认展开的卡片</div>
+        <template #extend>
+          <div style="padding: 20rpx">
+            默认就能看到这些内容
+          </div>
+          <div style="padding: 20rpx">
+            当然你也可以点击箭头收起
+          </div>
+        </template>
+      </lds-card>
+    </view>
+
+    <view class="section">
       <view class="section-title">业务示例</view>
       <lds-card>
         <div style="margin: 0 20rpx">

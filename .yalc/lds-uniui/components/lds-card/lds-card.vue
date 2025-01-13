@@ -28,25 +28,42 @@
 </template>
 
 <script setup lang="ts">
-import { ref, useSlots, computed, nextTick, getCurrentInstance } from 'vue'
+import { ref, useSlots, computed, nextTick, getCurrentInstance, onMounted } from 'vue'
 
 // 添加 props 定义
 interface Props {
   bgColor?: string
+  defaultExpand?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  bgColor: '#02a7f0' // 设置默认背景色
+  bgColor: '#02a7f0', // 设置默认背景色
+  defaultExpand: false // 默认不展开
 })
 
 const slots = useSlots()
 const extend = computed(() => !!slots['extend'])
 
-const isExpanded = ref(false)
+const isExpanded = ref(props.defaultExpand)
 const contentMaxHeight = ref('0px')
 const expandableContent = ref<HTMLElement | null>(null)
 const that = getCurrentInstance()
-  const queryselect = uni.createSelectorQuery().in(that)
+const queryselect = uni.createSelectorQuery().in(that)
+
+// 组件挂载后，如果默认展开则计算高度
+onMounted(async () => {
+  if (props.defaultExpand && extend.value) {
+    await nextTick()
+    queryselect
+      .select('.content-wrapper')
+      .boundingClientRect((data: any) => {
+        if (data) {
+          contentMaxHeight.value = `${data.height}px`
+        }
+      })
+      .exec()
+  }
+})
 
 const toggleExpand = async () => {
   isExpanded.value = !isExpanded.value
