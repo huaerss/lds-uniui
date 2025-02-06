@@ -32,7 +32,14 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         { text: '富文本编辑器', link: '/rich-text' },
         { text: '树形控件', link: '/tree' },
       ]
-    }
+    },
+    {
+      base: '/nav/components/utils',
+      text: '展示组件',
+      items: [
+        { text: '二维码生成', link: '/qrCodeGenerate' },
+      ]
+    },
 
   ]
 }

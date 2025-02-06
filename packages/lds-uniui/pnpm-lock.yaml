@@ -14,9 +14,9 @@ importers:
       '@types/uni-app':
         specifier: ^1.4.4
         version: 1.4.8
-      types,:
-        specifier: link:@dcloudio/types,
-        version: link:@dcloudio/types,
+      uqrcodejs:
+        specifier: ^4.0.7
+        version: 4.0.7
 
 packages:
 
@@ -74,6 +74,9 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
+  uqrcodejs@4.0.7:
+    resolution: {integrity: sha512-84+aZmD2godCVI+93lxE3YUAPNY8zAJvNA7xRS7R7U+q57KzMDepBSfNCwoRUhWOfR6eHFoAOcHRPwsP6ka1cA==}
+
   vue@2.7.16:
     resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
     deprecated: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
@@ -125,6 +128,8 @@ snapshots:
   source-map-js@1.2.1: {}
 
   source-map@0.6.1: {}
+
+  uqrcodejs@4.0.7: {}
 
   vue@2.7.16:
     dependencies:

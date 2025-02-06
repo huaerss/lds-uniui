@@ -1,6 +1,6 @@
 {
     "name": "lds-uniui",
-    "version": "1.0.2",
+    "version": "1.0.41",
     "description": "lds-uniapp组件库",
     "main": "index.ts",
     "files": [
@@ -23,7 +23,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@dcloudio/types": "^3.0.0"
+        "@dcloudio/types": "^3.0.0",
+        "uqrcodejs": "^4.0.7"
     },
-    "yalcSig": "efd56df5d23d91a0ecd3acd6d72817d5"
+    "yalcSig": "a2d5f156c6b8280a31f9142c7c075821"
 }

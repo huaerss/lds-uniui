@@ -29,6 +29,12 @@
 			"style": {
 				"navigationBarTitleText": "卡片"
 			}
+		},
+		{
+			"path": "pages/qrCodeGenerate/index",
+			"style": {
+				"navigationBarTitleText": "二维码生成"
+			}
 		}
 	],
 	"easycom": {

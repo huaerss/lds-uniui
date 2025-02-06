@@ -53,6 +53,12 @@ importers:
       '@dcloudio/uni-quickapp-webview':
         specifier: 3.0.0-4020920240930001
         version: 3.0.0-4020920240930001(@vueuse/core@11.2.0(vue@3.5.12(typescript@4.9.5)))(postcss@8.4.47)(rollup@4.24.4)(vue@3.5.12(typescript@4.9.5))
+      lds-uniui:
+        specifier: file:.yalc/lds-uniui
+        version: file:.yalc/lds-uniui(@dcloudio/types@3.4.14)(@types/uni-app@1.4.8)
+      uqrcodejs:
+        specifier: ^4.0.7
+        version: 4.0.7
       vue:
         specifier: ^3.4.21
         version: 3.5.12(typescript@4.9.5)
@@ -3252,6 +3258,12 @@ packages:
     resolution: {integrity: sha512-M6T051+5QCGLBQb8id3hdvIW8+zeFV2FyBGFS9IEK5H9Wt4MueD4bW1eWikpHgZp+5xR3l5c8pZUkQsIA0BFZg==}
     engines: {node: '>=8'}
 
+  lds-uniui@file:.yalc/lds-uniui:
+    resolution: {directory: .yalc/lds-uniui, type: directory}
+    peerDependencies:
+      '@dcloudio/types': ^3.0.0
+      '@types/uni-app': ^1.4.4
+
   leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
     engines: {node: '>=6'}
@@ -4422,6 +4434,9 @@ packages:
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
+
+  uqrcodejs@4.0.7:
+    resolution: {integrity: sha512-84+aZmD2godCVI+93lxE3YUAPNY8zAJvNA7xRS7R7U+q57KzMDepBSfNCwoRUhWOfR6eHFoAOcHRPwsP6ka1cA==}
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
@@ -8904,6 +8919,11 @@ snapshots:
     dependencies:
       invert-kv: 3.0.1
 
+  lds-uniui@file:.yalc/lds-uniui(@dcloudio/types@3.4.14)(@types/uni-app@1.4.8):
+    dependencies:
+      '@dcloudio/types': 3.4.14
+      '@types/uni-app': 1.4.8
+
   leven@3.1.0: {}
 
   licia@1.44.0: {}
@@ -10174,6 +10194,8 @@ snapshots:
       browserslist: 4.24.2
       escalade: 3.2.0
       picocolors: 1.1.1
+
+  uqrcodejs@4.0.7: {}
 
   url-parse@1.5.10:
     dependencies:

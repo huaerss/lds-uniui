@@ -9,6 +9,7 @@
             "DOM.Iterable"
         ],
         "skipLibCheck": true,
+        "noImplicitAny": false,
         "moduleResolution": "node",
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
@@ -31,7 +32,8 @@
         "src/**/*.d.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "components/**/*.vue"
+        "components/**/*.vue",
+        "types/**/*.d.ts"
     ],
     "types": [
         "@dcloudio/types",
